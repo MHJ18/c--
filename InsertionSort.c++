@@ -7,7 +7,7 @@ void swap(int *a, int *b)
     *a = *b;
     *b = temp;
 }
-let main()
+int main()
 {
     let input;
     cout << "Enter the size of array:";
@@ -18,20 +18,24 @@ let main()
         cout << "Numers u want in the array:" << endl;
         cin >> arr[i];
     }
-
-    for (int i = 0; i < input - 1; i++)
+    for (size_t i = 1; i < input; i++)
     {
-        for (size_t j = i; j < input - 1; j++)
+        let current = arr[i];
+        let j = i - 1;
+        while (arr[j] > current && j >= 0)
         {
-            if (arr[i] > arr[i + 1])
+            if (arr[j] > current)
             {
-                swap(arr[i], arr[i + 1]);
+                arr[j + 1] = arr[j];
+                j--;
             }
+            arr[j + 1] = current;
         }
     }
+
     for (size_t k = 0; k < input; k++)
     {
 
-        cout << "sorted array element- " << k + 1 << "is :" << arr[k] << endl;
+        cout << "sorted array element -" << k << "is :" << arr[k] << endl;
     }
 }
