@@ -18,21 +18,19 @@ int main()
         cout << "Numers u want in the array:" << endl;
         cin >> arr[i];
     }
+    let mx = 0;
     for (size_t i = 1; i < input; i++)
     {
+
         let current = arr[i];
         let j = i - 1;
         while (arr[j] > current && j >= 0)
         {
-            if (arr[j] > current)
-            {
-                arr[j + 1] = arr[j];
-                j--;
-            }
-            arr[j + 1] = current;
+            arr[j + 1] = arr[j];
+            j--;
         }
+        arr[j + 1] = current;
     }
-
     for (size_t k = 0; k < input; k++)
     {
 
